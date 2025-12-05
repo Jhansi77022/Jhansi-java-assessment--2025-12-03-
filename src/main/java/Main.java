@@ -27,7 +27,7 @@ public class Main{
                 break;
             default:
                 System.out.println("Invalid choice!");
-                System.exit(0);
+                return;
         }
 
         shape.displayInfo();
