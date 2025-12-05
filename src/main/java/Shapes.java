@@ -1,13 +1,16 @@
+import java.util.logging.Logger;
+
 abstract class Shapes {
+    private static final Logger LOGGER = Logger.getLogger(Shapes.class.getName());
     private String name;
 
-    public Shapes(String name) {
+    protected Shapes(String name) {
         this.name = name;
-    }   
+    }
+
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -15,27 +18,18 @@ abstract class Shapes {
 
     public abstract double area();
     public abstract double perimeter();
-    
 
     public void calculateArea() {
-        // Default implementation (can be overridden by subclasses)
-        System.out.println("The area of " + name + " is: " + area());
-
+        LOGGER.info(() -> "The area of " + name + " is: " + area());
     }
 
     public void calculatePerimeter() {
-        // Default implementation (can be overridden by subclasses)
-        System.out.println("The perimeter of " + name + " is: " + perimeter());
+        LOGGER.info(() -> "The perimeter of " + name + " is: " + perimeter());
     }
 
     public void displayInfo() {
-        System.out.println("Shape: " + name);
-        System.out.println("Area: " + area());
-        System.out.println("Perimeter: " + perimeter());
-
+        LOGGER.info(() -> "Shape: " + name);
+        LOGGER.info(() -> "Area: " + area());
+        LOGGER.info(() -> "Perimeter: " + perimeter());
     }
-
-
-    
-
 }
